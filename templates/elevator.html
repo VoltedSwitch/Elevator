@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Python Elevator</title>
+
+    <!-- Link to external CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div id="message">🚪 You are on Floor 0</div>
+
+    <button onclick="goUp()">⬆️ Go Up</button>
+    <button onclick="goDown()">⬇️ Go Down</button>
+
+    <!-- Link to external JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
