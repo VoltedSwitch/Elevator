@@ -12,7 +12,8 @@ function goUp() {
 }
 
 function goDown() {
-  if (floor > 0) {
+  if (floor > 0);
+  {
     floor--;
   }
   updateMessage();
