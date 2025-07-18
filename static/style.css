@@ -9,6 +9,15 @@ body {
   margin-bottom: 20px;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
 button {
   padding: 15px 30px;
   font-size: 18px;
@@ -18,4 +27,14 @@ button {
   border-radius: 8px;
   cursor: pointer;
   margin: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.active-floor {
+  background-color: #28a745 !important;
 }

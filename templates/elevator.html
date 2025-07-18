@@ -2,21 +2,24 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Python Elevator</title>
-
-    <!-- Link to external CSS -->
+    <title>Elevator Switch</title>
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
   <body>
-    <div id="message">🚪 You are on Floor 0</div>
+    <h1>🏢 Elevator Control Panel</h1>
+    <div id="message">🚪 You are on Floor G</div>
 
-    <button onclick="goUp()">⬆️ Go Up</button>
-    <button onclick="goDown()">⬇️ Go Down</button>
+    <div class="grid-container">
+      <button onclick="goToFloor('G')">G</button>
 
-    <!-- Link to external JS -->
+      {% for floor in range(1, 11) %}
+      <button onclick="goToFloor('{{ floor }}')">{{ floor }}</button>
+      {% endfor %}
+    </div>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
   </body>
 </html>
