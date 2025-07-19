@@ -1,26 +1,35 @@
 let lastPressedButton = null; // Keeps track of the previously clicked button
+const EMERGENCY_MESSAGE = "🚨 Help is on the way 🚨";
+const EMERGENCY_SYMBOL = "🚨";
+const ALL_BUTTONS = "button";
+const ALL_BUTTONS_STYLER = "active-floor";
+const EMERGENCY_BUTTON_ID = "emergency-button";
+const EMERGENCY_BUTTON_STYLER = "emergency";
+const BUTTONS = document.querySelectorAll(ALL_BUTTONS);
+const EMERGENCY_BUTTON = document.getElementById(EMERGENCY_BUTTON_ID);
 
 function updateMessage(floor) {
-  // 1. Update the floor message at the top
-  document.getElementById(
-    "message"
-  ).textContent = `🚪 You are on Floor ${floor}`;
+  document.getElementById("message").textContent =
+    floor === "🚨" ? EMERGENCY_MESSAGE : `🚪 You are on Floor ${floor}`;
 
-  // 2. Remove green class from the previous button (if any)
   if (lastPressedButton) {
-    lastPressedButton.classList.remove("active-floor");
+    lastPressedButton.classList.remove(
+      ALL_BUTTONS_STYLER,
+      EMERGENCY_BUTTON_STYLER
+    );
   }
 
-  // 3. Find the button we just clicked (by matching text)
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((btn) => {
-    if (btn.textContent === floor) {
-      btn.classList.add("active-floor"); // Turn it green!
-      lastPressedButton = btn; // Save it as the last pressed one
+  BUTTONS.forEach((btn) => {
+    if (btn.textContent === floor && floor !== EMERGENCY_SYMBOL) {
+      btn.classList.add(ALL_BUTTONS_STYLER);
+      lastPressedButton = btn;
+    } else if (floor === "🚨") {
+      EMERGENCY_BUTTON.classList.add(EMERGENCY_BUTTON_STYLER);
+      lastPressedButton = EMERGENCY_BUTTON;
     }
   });
 }
 
 function goToFloor(floor) {
-  updateMessage(floor); // Just call updateMessage with the selected floor
+  updateMessage(floor);
 }

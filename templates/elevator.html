@@ -18,6 +18,8 @@
       {% for floor in range(1, 11) %}
       <button onclick="goToFloor('{{ floor }}')">{{ floor }}</button>
       {% endfor %}
+      
+      <button id="emergency-button" onclick="goToFloor('🚨')">🚨</button>
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
