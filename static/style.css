@@ -39,13 +39,13 @@ button:hover {
   background-color: #28a745 !important;
 }
 
-.emergency {
-   background-color: #4a0509 !important;
-}
-
 #emergency-button {
   background-color: rgb(185, 26, 26);
   color: rgb(255, 255, 255);
   font-weight: bold;
   animation: blink 1s infinite;
+}
+
+.emergency {
+  background-color: #4a0509 !important;
 }
